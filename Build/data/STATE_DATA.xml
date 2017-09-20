@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<STATES>
+
+<MENU>
+	<TEXTURES>
+		<texture filename="res/startMenu.png" ID="startBG"/>
+		<texture filename="res/buttons.png" ID="buttons"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="Image" x="0" y="0" width="160" height="144" textureID="startBG"/>
+		<object type="Button" x="64" y="88" width="32" height="16" textureID="buttons" row="0" callbackID="0"/>
+		<object type="Button" x="64" y="112" width="32" height="16" textureID="buttons" row="1" callbackID="1"/>
+	</OBJECTS>
+</MENU>
+
+<PLAY>
+	<TEXTURES>
+		<texture filename="res/charSheet.png" ID="player"/>
+		<texture filename="res/enemyBook.png" ID="enemy"/>
+		<texture filename="res/throwingKnife.png" ID="playerProjectile"/>
+		<texture filename="res/fireBall.png" ID="enemyProjectile"/>
+		<texture filename="res/GUI_Overlay.png" ID="GUI"/>
+		<texture filename="res/heart.png" ID="heart"/>
+		<texture filename="res/relic.png" ID="relic"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="DisplayGraphic" x="0" y="0" width="160" height="144" textureID="GUI"/>
+	</OBJECTS>
+</PLAY>
+
+<PAUSE>
+	<TEXTURES>
+		<texture filename="res/pauseMenu.png" ID="pauseBG"/>
+		<texture filename="res/smallTitles.png" ID="pauseTitles"/>
+		<texture filename="res/buttons.png" ID="pauseButtons"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="ScrollingImage" x="0" y="0" width="160" height="144" textureID="pauseBG"/>
+		<object type="Image" x="48" y="16" width="64" height="16" textureID="pauseTitles" row="1"/>
+		<object type="Button" x="64" y="72" width="32" height="16" textureID="pauseButtons" row="0" callbackID="0"/>
+		<object type="Button" x="64" y="96" width="32" height="16" textureID="pauseButtons" row="2" callbackID="1"/>
+	</OBJECTS>
+</PAUSE>
+
+<GAMEOVER>
+	<TEXTURES>
+		<texture filename="res/gameOver.png" ID="gameOverBG"/>
+		<texture filename="res/buttons.png" ID="gameOverButtons"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="Image" x="0" y="0" width="160" height="144" textureID="gameOverBG"/>
+		<object type="Button" x="64" y="48" width="32" height="16" textureID="gameOverButtons" row="0" callbackID="0"/>
+		<object type="Button" x="64" y="72" width="32" height="16" textureID="gameOverButtons" row="2" callbackID="1"/>
+		<object type="Button" x="64" y="96" width="32" height="16" textureID="gameOverButtons" row="1" callbackID="2"/>
+	</OBJECTS>
+</GAMEOVER>
+
+<VICTORY>
+	<TEXTURES>
+		<texture filename="res/pauseMenu.png" ID="victoryBG"/>
+		<texture filename="res/smallTitles.png" ID="victoryTitles"/>
+		<texture filename="res/buttons.png" ID="victoryButtons"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="ScrollingImage" x="0" y="0" width="160" height="144" textureID="victoryBG"/>
+		<object type="Image" x="48" y="16" width="64" height="16" textureID="victoryTitles" row="2"/>
+		<object type="Button" x="64" y="72" width="32" height="16" textureID="victoryButtons" row="2" callbackID="0"/>
+		<object type="Button" x="64" y="96" width="32" height="16" textureID="victoryButtons" row="1" callbackID="1"/>
+	</OBJECTS>
+</VICTORY>
+
+<INFO>
+	<TEXTURES>
+		<texture filename="res/infoScreen.png" ID="infoBG"/>
+		<texture filename="res/smallTitles.png" ID="infoTitles"/>
+		<texture filename="res/buttons.png" ID="infoButtons"/>
+	</TEXTURES>
+	<OBJECTS>
+		<object type="Image" x="0" y="0" width="160" height="144" textureID="infoBG"/>
+		<object type="Image" x="48" y="16" width="64" height="16" textureID="infoTitles" row="0"/>
+		<object type="Button" x="64" y="88" width="32" height="16" textureID="infoButtons" row="0" callbackID="0"/>
+	</OBJECTS>
+</INFO>
+
+</STATES>

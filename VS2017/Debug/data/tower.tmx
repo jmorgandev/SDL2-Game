@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="44" height="27" tilewidth="16" tileheight="16" nextobjectid="42">
+ <tileset firstgid="1" name="DEBUG_COLLISION" tilewidth="16" tileheight="16">
+  <image source="res/DEBUG_COLLISION.png" width="32" height="16"/>
+  <tile id="1">
+   <properties>
+    <property name="collidable" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="3" name="overworld" tilewidth="16" tileheight="16">
+  <image source="res/tileSet.png" width="128" height="144"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="44" height="27">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKgDAMheGewIKbqJNVQaTe/3ZmsJDBaivJEHzDtwi1P29pcM4FAICfWMiubBXsnUnLNJVKzkzCvaX3fqXRqwm9cjpjvdb2Ra/t3kiGy5i5z1e09ex/ySHY+7a1Z5460/souWXN1tyW+X5Ha0sAAEtOBnWSKQ==
+  </data>
+ </layer>
+ <layer name="Collision_Layer" width="44" height="27">
+  <properties>
+   <property name="collidable" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJztljEKACAMxIr/f7SriCDWnhaagJs1wUXNAABq0cRL2eqZj9hz6ou+h5Uj21kvHPRqHfRqHfTqHZFvkfp9m103s+q+nXf0//greMnSAQB16bf7AJc=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="35" name="playerStart" type="Player" x="288" y="288" width="16" height="20">
+   <properties>
+    <property name="textureID" value="player"/>
+   </properties>
+  </object>
+  <object id="36" type="LevelTrigger" x="292" y="308" width="8" height="8">
+   <properties>
+    <property name="levelID" value="start"/>
+    <property name="newX" value="176"/>
+    <property name="newY" value="412"/>
+   </properties>
+  </object>
+  <object id="37" type="LevelTrigger" x="468" y="196" width="8" height="8">
+   <properties>
+    <property name="levelID" value="tower2"/>
+    <property name="newX" value="464"/>
+    <property name="newY" value="176"/>
+   </properties>
+  </object>
+  <object id="39" type="Enemy" x="240" y="192" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="40" type="Enemy" x="368" y="240" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="41" type="Enemy" x="384" y="160" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="15" height="35" tilewidth="16" tileheight="16" nextobjectid="42">
+ <tileset firstgid="1" name="DEBUG_COLLISION" tilewidth="16" tileheight="16">
+  <image source="res/DEBUG_COLLISION.png" width="32" height="16"/>
+  <tile id="1">
+   <properties>
+    <property name="collidable" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="3" name="overworld" tilewidth="16" tileheight="16">
+  <image source="res/tileSet.png" width="128" height="144"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="15" height="35">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgUCEDw8Bw0KsGxDpIWJ0EvapAzIeElYnUC7JTF6pHEkprY7Ebm150O3HZTW29ekAsi6ZPGoj16RhWMDzYw2o0nEfDeTScqRvOsHKS2HCmJI5g7pZBwujuxaeXGDxU9QIAvqE4Pw==
+  </data>
+ </layer>
+ <layer name="Collision_Layer" width="15" height="35">
+  <properties>
+   <property name="collidable" value="1"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxTYWBgUBnFDExImFR9yIAU/eTqRddHin5K9A6Uf4diWI2GM/H6R8N5NJwHo16YfnLqheGMAcj8NME=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1">
+  <object id="33" type="LevelTrigger" x="116" y="452" width="8" height="8">
+   <properties>
+    <property name="levelID" value="tunnel"/>
+    <property name="newX" value="192"/>
+    <property name="newY" value="156"/>
+   </properties>
+  </object>
+  <object id="34" name="playerStart" type="Player" x="112" y="428" width="16" height="20">
+   <properties>
+    <property name="textureID" value="player"/>
+   </properties>
+  </object>
+  <object id="35" type="Enemy" x="112" y="304" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="36" type="Enemy" x="136" y="208" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="37" type="Enemy" x="88" y="208" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="38" type="Enemy" x="112" y="128" width="16" height="16">
+   <properties>
+    <property name="textureID" value="enemy"/>
+   </properties>
+  </object>
+  <object id="39" type="LevelTrigger" x="116" y="100" width="8" height="8">
+   <properties>
+    <property name="levelID" value="secretArea"/>
+    <property name="newX" value="176"/>
+    <property name="newY" value="336"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

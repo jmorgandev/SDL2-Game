@@ -1,0 +1,4 @@
+﻿  EventPoller.cpp
+c:\users\jamie\desktop\uppp\2d sdl game\sdl_engine\sdl_engine\eventpoller.cpp(27): warning C4018: '<': signed/unsigned mismatch
+  SDL_ENGINE.vcxproj -> C:\Users\Jamie\Desktop\uppp\2D SDL Game\SDL_ENGINE\Debug\SDL_ENGINE.exe
+  SDL_ENGINE.vcxproj -> C:\Users\Jamie\Desktop\uppp\2D SDL Game\SDL_ENGINE\Debug\SDL_ENGINE.pdb (Partial PDB)

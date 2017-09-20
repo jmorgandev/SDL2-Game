@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6DADA097-BC6C-45F3-B160-4A020C3666B5}</ProjectGuid>
+    <RootNamespace>SDL_ENGINE</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;zdll.lib</AdditionalDependencies>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;zdll.lib</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base64.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="DisplayGraphic.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="EventPoller.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObjectFactory.cpp" />
+    <ClCompile Include="GameOverState.cpp" />
+    <ClCompile Include="GameStateMachine.cpp" />
+    <ClCompile Include="InfoMenuState.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="LevelParser.cpp" />
+    <ClCompile Include="LevelTrigger.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="ObjectLayer.cpp" />
+    <ClCompile Include="PauseMenuState.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="ProjectileHandler.cpp" />
+    <ClCompile Include="Relic.cpp" />
+    <ClCompile Include="ScrollingImage.cpp" />
+    <ClCompile Include="SDLGameObject.cpp" />
+    <ClCompile Include="StateParser.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TileLayer.cpp" />
+    <ClCompile Include="tinyxml.cpp" />
+    <ClCompile Include="tinyxmlerror.cpp" />
+    <ClCompile Include="tinyxmlparser.cpp" />
+    <ClCompile Include="VictoryMenuState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base64.h" />
+    <ClInclude Include="BaseCreator.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="DisplayGraphic.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="EventPoller.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectFactory.h" />
+    <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateMachine.h" />
+    <ClInclude Include="InfoMenuState.h" />
+    <ClInclude Include="Layer.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="LevelParser.h" />
+    <ClInclude Include="LevelTrigger.h" />
+    <ClInclude Include="LoadParameters.h" />
+    <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="MenuState.h" />
+    <ClInclude Include="GameOverState.h" />
+    <ClInclude Include="ObjectLayer.h" />
+    <ClInclude Include="PauseMenuState.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayState.h" />
+    <ClInclude Include="Projectile.h" />
+    <ClInclude Include="ProjectileHandler.h" />
+    <ClInclude Include="Relic.h" />
+    <ClInclude Include="ScrollingImage.h" />
+    <ClInclude Include="SDLGameObject.h" />
+    <ClInclude Include="StateParser.h" />
+    <ClInclude Include="StaticImage.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="TileLayer.h" />
+    <ClInclude Include="Tileset.h" />
+    <ClInclude Include="tinyxml.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="VictoryMenuState.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
