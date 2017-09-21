@@ -12,6 +12,8 @@ Technologies used:
 - zlib
 
 Last modification: April 2015
+
 Last compiled: 20th September 2017
+
 
 Compiled using Visual Studio 2017 (version 15.3.5)
