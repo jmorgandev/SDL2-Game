@@ -15,6 +15,11 @@
 #include "Relic.h"
 #include "LevelTrigger.h"
 
+const int VID_WIDTH = 160;
+const int VID_HEIGHT = 144;
+const int VID_SCALE = 4;
+const double VID_ASPECT = (double)VID_WIDTH / (double)VID_HEIGHT;
+
 Game* Game::instance() {
 	static Game game_instance;
 	return &game_instance;
@@ -27,18 +32,56 @@ int Game::getScreenHeight() {
 	return m_ScreenHeight;
 }
 
+void Game::changeWindowMode(WindowMode newMode) {
+	switch (newMode) {
+	case WindowMode::Windowed:
+		m_ScreenWidth = VID_WIDTH;
+		m_ScreenHeight = VID_HEIGHT;
+		SDL_SetWindowFullscreen(m_pWindow, SDL_FALSE);
+		SDL_SetWindowBordered(m_pWindow, SDL_TRUE);
+		SDL_SetWindowSize(m_pWindow, m_ScreenWidth*m_ScreenScale, m_ScreenHeight*m_ScreenScale);
+		SDL_SetWindowPosition(m_pWindow, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+		m_windowMode = newMode;
+		break;
+	case WindowMode::Fullscreen:
+		m_ScreenWidth = VID_WIDTH;
+		m_ScreenHeight = VID_HEIGHT;
+		SDL_SetWindowSize(m_pWindow, m_ScreenWidth*m_ScreenScale, m_ScreenHeight*m_ScreenScale);
+		SDL_SetWindowFullscreen(m_pWindow, SDL_WINDOW_FULLSCREEN);
+		m_windowMode = newMode;
+		break;
+	case WindowMode::BorderlessFullscreen: {
+			changeWindowMode(WindowMode::Windowed);
+			SDL_DisplayMode dm;
+			if (SDL_GetDesktopDisplayMode(0, &dm) == 0) {
+				m_ScreenHeight = dm.h;
+				m_ScreenWidth = dm.h * VID_ASPECT;
+				SDL_SetWindowSize(m_pWindow, m_ScreenWidth, m_ScreenHeight);
+				SDL_SetWindowBordered(m_pWindow, SDL_FALSE);
+				SDL_SetWindowPosition(m_pWindow, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED);
+				m_windowMode = newMode;
+			}
+			else {
+				printf("Can't detect native resolution, switching to windowed mode...");
+			}
+		} break;
+	}
+}
+
 //Initialise the SDL window to the scaled resolution
 //and then set the internal resolution to the passed width and height arguments
-bool Game::init(const char* title, int xpos, int ypos, int width, int height, int scale, bool fullscreen) {
-	m_ScreenWidth = width;
-	m_ScreenHeight = height;
-	int flags = 0;
-	flags = (fullscreen) ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_SHOWN;
+bool Game::init(const char* title, int scale, WindowMode mode) {
+	m_ScreenWidth = VID_WIDTH;
+	m_ScreenHeight = VID_HEIGHT;
+	m_ScreenScale = scale;
+	int flags = SDL_WINDOW_SHOWN;
+		
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		printf("Failed to initialise SDL. Error: %s", SDL_GetError());
 		return false;
 	}
-	m_pWindow = SDL_CreateWindow(title, xpos, ypos, width*scale, height*scale, flags);
+	int p = SDL_WINDOWPOS_CENTERED;
+	m_pWindow = SDL_CreateWindow(title, p, p, m_ScreenWidth*m_ScreenScale, m_ScreenHeight*m_ScreenScale, flags);
 	if (m_pWindow == nullptr) {
 		printf("Failed to create SDL Window. Error: %s", SDL_GetError());
 		return false;
@@ -48,9 +91,12 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 		printf("Failed to create SDL Renderer. Error: %s", SDL_GetError());
 		return false;
 	}
-	SDL_RenderSetLogicalSize(m_pRenderer, width, height);
+	SDL_RenderSetLogicalSize(m_pRenderer, m_ScreenWidth, m_ScreenHeight);
 	SDL_SetRenderDrawColor(m_pRenderer, 0xFB, 0xD8, 0xB8, 0xFF);
-	
+	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 0xFF);
+
+	changeWindowMode(WindowMode::Windowed);
+
 	//Add every gameobject type to the GameObjectFactory
 	GameObjectFactory::instance()->registerType("Image", new StaticImageCreator());
 	GameObjectFactory::instance()->registerType("Button", new ButtonCreator());

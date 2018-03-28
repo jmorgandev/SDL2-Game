@@ -5,18 +5,22 @@
 #include <vector>
 #include "EventHandler.h"
 
+enum class WindowMode { Windowed, Fullscreen, BorderlessFullscreen};
+
 //Main game class
 class Game {
 public:
 	static Game* instance();
 	~Game(){}
 
-	bool init(const char* title, int xpos, int ypos, int width, int height, int scale, bool fullscreen);
+	bool init(const char* title, int scale, WindowMode mode = WindowMode::Windowed);
 	void render();
 	void update();
 	void handleEvents();
 	void quit();
 	void clean();
+
+	void changeWindowMode(WindowMode newMode);
 
 	void addEventHandler(EventHandler* pHandler);
 	void removeEventHandler(EventHandler* pHandler);
@@ -32,6 +36,9 @@ private:
 
 	int m_ScreenWidth;
 	int m_ScreenHeight;
+	int m_ScreenScale;
+
+	WindowMode m_windowMode;
 
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;

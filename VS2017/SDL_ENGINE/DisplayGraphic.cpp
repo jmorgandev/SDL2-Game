@@ -42,6 +42,7 @@ void DisplayGraphic::draw() {
 	if (m_hit) {
 		SDL_SetRenderDrawColor(Game::instance()->getRenderer(), 0xF3, 0xD2, 0x6D, 0xFF);
 		SDL_RenderClear(Game::instance()->getRenderer());
+		SDL_SetRenderDrawColor(Game::instance()->getRenderer(), 0, 0, 0, 0xFF);
 	}
 	SDLGameObject::draw();
 

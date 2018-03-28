@@ -24,8 +24,21 @@ void EventPoller::update() {
 		if (e.type == SDL_QUIT) {
 			Game::instance()->quit();
 		}
-		for (int i = 0; i < m_handlers.size(); i++) {
-			m_handlers[i]->handleEvent(e);
+		else {
+			//Extra window size controls for showcasing
+			if (e.type == SDL_KEYDOWN) {
+				switch (e.key.keysym.sym) {
+				case SDLK_F4:
+					Game::instance()->changeWindowMode(WindowMode::Windowed);
+					break;
+				case SDLK_F5:
+					Game::instance()->changeWindowMode(WindowMode::Fullscreen);
+					break;
+				}
+			}
+			for (int i = 0; i < m_handlers.size(); i++) {
+				m_handlers[i]->handleEvent(e);
+			}
 		}
 	}
 }

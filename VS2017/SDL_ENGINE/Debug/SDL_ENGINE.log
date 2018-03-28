@@ -1,4 +1,3 @@
-﻿  EventPoller.cpp
-c:\users\jamie\desktop\uppp\2d sdl game\sdl_engine\sdl_engine\eventpoller.cpp(27): warning C4018: '<': signed/unsigned mismatch
-  SDL_ENGINE.vcxproj -> C:\Users\Jamie\Desktop\uppp\2D SDL Game\SDL_ENGINE\Debug\SDL_ENGINE.exe
-  SDL_ENGINE.vcxproj -> C:\Users\Jamie\Desktop\uppp\2D SDL Game\SDL_ENGINE\Debug\SDL_ENGINE.pdb (Partial PDB)
+﻿  Game.cpp
+c:\users\jamie\documents\github\sdl2-game\vs2017\sdl_engine\game.cpp(58): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  SDL_ENGINE.vcxproj -> C:\Users\jamie\Documents\GitHub\SDL2-Game\VS2017\Debug\SDL_ENGINE.exe

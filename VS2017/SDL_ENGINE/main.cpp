@@ -4,11 +4,14 @@
 const int FPS = 60;		//FPS Limit
 const int DELAY_TIME = 1000.0f / FPS;	//How many ticks must elapse before next frame
 
+const int WIN_WIDTH = 160;
+const int WIN_HEIGHT = 144;
+
 int main(int argc, char* args[]) {
 
 	Uint32 frameStart, frameTime;	//Variables for framerate limit
 
-	Game::instance()->init("Into the Fold", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 160, 144, 4, false);
+	Game::instance()->init("Into the Fold", 4);
 
 
 	//If init was successful then begin running game until the game quits
